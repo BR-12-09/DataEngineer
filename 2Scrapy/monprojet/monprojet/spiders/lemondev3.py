@@ -9,8 +9,8 @@ class Lemondev3Spider(scrapy.Spider):
     def parse(self, response, **kwargs):
         all_links = {
             name: response.urljoin(url) for name, url in zip(
-                response.css("#nav-markup .Nav__item")[4].css("a::text").extract(),
-                response.css("#nav-markup .Nav__item")[4].css("a::attr(href)").extract())
+                response.css("#nav-markup .Nav__item")[3].css("a::text").extract(),
+                response.css("#nav-markup .Nav__item")[3].css("a::attr(href)").extract())
         }
         for link in all_links.values():
             yield Request(link, callback=self.parse_category)

@@ -10,8 +10,8 @@ class LemondeSpider(scrapy.Spider):
         title = response.css('title::text').extract_first()
         all_links = {
             name:response.urljoin(url) for name, url in zip(
-            response.css("#nav-markup .Nav__item")[4].css("a::text").extract(),
-            response.css("#nav-markup .Nav__item")[4].css("a::attr(href)").extract())
+            response.css("#nav-markup .Nav__item")[3].css("a::text").extract(),
+            response.css("#nav-markup .Nav__item")[3].css("a::attr(href)").extract())
         }
         yield {
             "title":title,
